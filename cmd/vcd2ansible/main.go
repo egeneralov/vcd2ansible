@@ -65,7 +65,7 @@ const tpl = `[vmware:children]
 {{ range $group_name, $members := . -}}
 [{{ $group_name }}]
 {{- range $members }}
-{{ .Name }} ansible_host={{ .Host }} vmware_id={{ .ID }}
+{{ .Name }} ansible_host={{ .Host }} ip={{ .Host }} vmware_id={{ .ID }}
 {{- end }}
 {{- end }}
 `
