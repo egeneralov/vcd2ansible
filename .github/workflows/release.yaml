@@ -21,13 +21,13 @@ jobs:
         uses: actions/checkout@master
       
       - name: build linux-amd64
-        run: GOOS=linux GOARCH="amd64" go build -a -v -installsuffix cgo -ldflags="-w -s" -o vcd2ansible-linux-amd64 cmd/vcd2ansible/*.go
+        run: GOOS=linux GOARCH="amd64" CGO_ENABLED=0 go build -a -v -installsuffix cgo -ldflags="-w -s" -o vcd2ansible-linux-amd64 cmd/vcd2ansible/*.go
       
       - name: build darwin-amd64
-        run: GOOS=darwin GOARCH="amd64" go build -a -v -installsuffix cgo -ldflags="-w -s" -o vcd2ansible-darwin-amd64 cmd/vcd2ansible/*.go
+        run: GOOS=darwin GOARCH="amd64" CGO_ENABLED=0 go build -a -v -installsuffix cgo -ldflags="-w -s" -o vcd2ansible-darwin-amd64 cmd/vcd2ansible/*.go
 
       - name: build darwin-arm64
-        run: GOOS=darwin GOARCH="arm64" go build -a -v -installsuffix cgo -ldflags="-w -s" -o vcd2ansible-darwin-arm64 cmd/vcd2ansible/*.go
+        run: GOOS=darwin GOARCH="arm64" CGO_ENABLED=0 go build -a -v -installsuffix cgo -ldflags="-w -s" -o vcd2ansible-darwin-arm64 cmd/vcd2ansible/*.go
       
       - name: Create Release
         id: create_release
